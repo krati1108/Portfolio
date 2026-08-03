@@ -18,7 +18,9 @@ const Education = () => (
           </div>
           <div className="md:text-right">
             <p className="text-white/60 font-mono text-sm">{education.duration}</p>
-            <p className="text-white font-black mt-2">GPA {education.gpa}</p>
+            {education.gpa && (
+              <p className="text-white font-black mt-2">GPA {education.gpa}</p>
+            )}
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
