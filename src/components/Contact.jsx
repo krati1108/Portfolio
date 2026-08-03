@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { emailjsConfig, personalInfo, socialLinks } from '../data/portfolioData';
+import { emailjsConfig, personalInfo } from '../data/portfolioData';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -73,7 +73,7 @@ const Contact = () => {
   };
 
   return (
-    <section ref={ref} id="contact" className="bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-32 pb-0 md:pb-0 border-t border-gray-900">
+    <section ref={ref} id="contact" className="data-section bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-32 pb-0 md:pb-0 border-t border-gray-900">
       {/* Huge Background Text */}
       <motion.div 
         style={{ y }}
@@ -90,30 +90,20 @@ const Contact = () => {
       {/* Form Card Overlay */}
       <div className="relative z-10 w-full flex justify-end items-end">
         <div 
-          data-aos="fade-up"
-          className="bg-[#0274A1] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
+          data-aos="zoom-in-up"
+          data-aos-duration="1100"
+          className="bg-[#087F8C] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
-          <div className="flex flex-col sm:flex-row sm:flex-wrap justify-between items-start gap-4 mb-12">
-            <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
-              Reach Me
+          <div className="mb-12 max-w-2xl">
+            <div className="text-[10px] font-black tracking-[0.25em] uppercase text-teal-100">
+              Let&apos;s connect
             </div>
-            {/* LinkedIn Quick Link */}
-            <a 
-              href={socialLinks.linkedin}
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-2 text-xs font-black uppercase tracking-wider bg-white/10 hover:bg-white hover:text-sky-600 border border-white/20 px-4 py-2 rounded-full transition-all duration-300"
-            >
-              Connect on LinkedIn
-            </a>
-            <a
-              href={socialLinks.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs font-black uppercase tracking-wider bg-white/10 hover:bg-white hover:text-[#0274A1] border border-white/20 px-4 py-2 rounded-full transition-all duration-300"
-            >
-              View GitHub
-            </a>
+            <h2 className="mt-4 text-3xl md:text-5xl font-black tracking-tight">
+              Have a data challenge worth solving?
+            </h2>
+            <p className="mt-3 text-white/70 font-medium">
+              Send a short note and I&apos;ll get back to you.
+            </p>
           </div>
 
           <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-12 md:gap-16 w-full">
@@ -127,15 +117,6 @@ const Contact = () => {
                     name="first_name"
                     placeholder="First Name" 
                     required
-                    className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
-                  />
-                </div>
-                <div className="relative">
-                  <input 
-                    type="text" 
-                    id="lastName" 
-                    name="last_name"
-                    placeholder="Last Name" 
                     className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
                   />
                 </div>
@@ -166,30 +147,8 @@ const Contact = () => {
             </div>
 
             {/* Bottom Section */}
-            <div className="flex flex-col md:flex-row gap-12 mt-4">
-              {/* Left text */}
-              <div className="flex-1 flex items-start gap-4 text-sm font-medium text-white/90">
-                <input 
-                  type="checkbox" 
-                  id="permission" 
-                  className="mt-1 w-4 h-4 rounded-sm border-white/40 bg-transparent text-white focus:ring-white focus:ring-offset-0 focus:ring-offset-transparent cursor-pointer" 
-                  style={{ accentColor: "white" }}
-                />
-                <label htmlFor="permission" className="cursor-pointer max-w-[280px] leading-snug">
-                  I give permission to contact me at this email address.
-                </label>
-              </div>
-
-              {/* Right text & button */}
-              <div className="flex-1 flex flex-col gap-8 text-xs text-white/70 font-medium">
-                <p className="leading-relaxed max-w-[400px]">
-                  Your message will be sent directly to my inbox. I typically respond within 24-48 hours.
-                </p>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6">
-                  <p className="max-w-[250px] leading-relaxed">
-                    For urgent inquiries, reach me at <a href={`mailto:${personalInfo.emails.primary}`} className="underline hover:text-white transition-colors">{personalInfo.emails.primary}</a>
-                  </p>
-                  
+            <div className="flex justify-end mt-2">
+              <div>
                   <button 
                     type="submit" 
                     disabled={status === 'sending'}
@@ -199,8 +158,8 @@ const Contact = () => {
                         : status === 'success'
                         ? 'bg-green-600 border-green-500 text-white shadow-[0_0_20px_rgba(22,163,74,0.4)]'
                         : status === 'error'
-                        ? 'bg-sky-800 border-sky-700 text-white'
-                        : 'hover:bg-white hover:text-[#0274A1]'
+                        ? 'bg-teal-800 border-teal-700 text-white'
+                        : 'hover:bg-white hover:text-[#087F8C]'
                     }`}
                   >
                     {status === 'sending' ? (
@@ -227,7 +186,6 @@ const Contact = () => {
                       </svg>
                     )}
                   </button>
-                </div>
               </div>
             </div>
           </form>

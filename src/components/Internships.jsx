@@ -1,10 +1,12 @@
 import { experienceList } from '../data/portfolioData';
+import HighlightMetrics from './HighlightMetrics';
 
 const InternshipCard = ({ intern, index }) => (
   <div 
-    data-aos="fade-up"
+    data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
     data-aos-delay={index * 150}
-    className="bg-black/80 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:scale-[1.02] hover:bg-black/90 hover:border-sky-200/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 flex flex-col justify-between"
+    data-aos-duration="1000"
+    className="data-panel bg-[#061316]/90 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 hover:-translate-y-2 hover:border-teal-200/40 hover:shadow-[0_28px_70px_rgba(3,31,35,0.42)] transition-all duration-500 flex flex-col justify-between"
   >
     <div>
       <div className="flex justify-between items-start mb-6">
@@ -18,16 +20,19 @@ const InternshipCard = ({ intern, index }) => (
       <h3 className="text-white text-2xl font-black mb-1 tracking-tight">
         {intern.role}
       </h3>
-      <p className="text-sky-200 text-sm font-black tracking-wide mb-6 uppercase">
+      <p className="text-teal-200 text-sm font-black tracking-wide mb-6 uppercase">
         {intern.organization}
       </p>
 
       {/* Skills gained */}
       <div className="mb-6">
-        <h4 className="text-white/60 text-xs font-bold uppercase tracking-wider mb-2">Selected Impact:</h4>
-        <ul className="text-white/90 text-sm font-medium space-y-1 pl-4 list-disc">
+        <h4 className="flex items-center gap-2 text-white/60 text-[10px] font-black uppercase tracking-[0.18em] mb-3">
+          <span className="h-px w-6 bg-teal-300/60" />
+          Key impact
+        </h4>
+        <ul className="text-white/85 text-sm font-medium leading-relaxed space-y-3 pl-4 list-disc marker:text-teal-300">
           {intern.highlights.map((skill, i) => (
-            <li key={i}>{skill}</li>
+            <li key={i}><HighlightMetrics>{skill}</HighlightMetrics></li>
           ))}
         </ul>
       </div>
@@ -35,7 +40,7 @@ const InternshipCard = ({ intern, index }) => (
 
     {/* Technologies used */}
     <div className="pt-4 border-t border-white/10">
-      <h4 className="text-white/60 text-xs font-bold uppercase tracking-wider mb-3">Technologies:</h4>
+      <h4 className="text-white/60 text-[10px] font-black uppercase tracking-[0.18em] mb-3">Core toolkit</h4>
       <div className="flex flex-wrap gap-2">
         {intern.tech.map((t) => (
           <span 
@@ -52,7 +57,7 @@ const InternshipCard = ({ intern, index }) => (
 
 const Internships = () => {
   return (
-    <section className="bg-[#0274A1] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans">
+    <section className="data-section bg-[#087F8C] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans">
       
       {/* Torn paper divider at top */}
       <div className="absolute top-0 left-0 w-full pointer-events-none z-10 transform -translate-y-[1px] rotate-180">
@@ -68,7 +73,7 @@ const Internships = () => {
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4 tracking-tight uppercase">
             Work Experience
           </h2>
-          <p className="text-sky-100 text-base md:text-lg font-semibold max-w-lg mx-auto">
+          <p className="text-teal-100 text-base md:text-lg font-semibold max-w-lg mx-auto">
             Analytics and business systems work that turned operational data into measurable outcomes.
           </p>
         </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { projects } from '../data/portfolioData';
+import HighlightMetrics from './HighlightMetrics';
 
 const GitHubIcon = () => (
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -16,9 +17,9 @@ const ExternalLinkIcon = () => (
 
 const ProjectCard = ({ project }) => (
   <div 
-    className={`relative rounded-2xl p-[1px] group transition-all duration-500 ${
+    className={`data-panel relative rounded-2xl p-[1px] group transition-all duration-500 hover:-translate-y-2 ${
       project.isFlagship 
-        ? 'bg-gradient-to-br from-sky-500/50 via-white/10 to-sky-500/30 hover:from-sky-500 hover:via-sky-400/30 hover:to-sky-500/60'
+        ? 'bg-gradient-to-br from-teal-500/50 via-white/10 to-teal-500/30 hover:from-teal-500 hover:via-teal-400/30 hover:to-teal-500/60'
         : 'bg-white/10 hover:bg-white/20'
     }`}
   >
@@ -37,7 +38,7 @@ const ProjectCard = ({ project }) => (
       </div>
       {/* Badge */}
       {project.badge && (
-        <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20 mb-3">
+        <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20 mb-3">
           {project.badge}
         </span>
       )}
@@ -50,7 +51,7 @@ const ProjectCard = ({ project }) => (
 
       {/* Description */}
       <p className="text-white/60 text-xs md:text-sm leading-relaxed mb-4 font-medium line-clamp-4">
-        {project.description}
+        <HighlightMetrics>{project.description}</HighlightMetrics>
       </p>
 
       {/* Tech Tags */}
@@ -58,7 +59,7 @@ const ProjectCard = ({ project }) => (
         {project.techTags.slice(0, 4).map((tag) => (
           <span 
             key={tag}
-            className="px-2.5 py-1 text-[10px] font-bold text-white/70 bg-white/5 rounded-full border border-white/10 hover:bg-sky-500/20 hover:border-sky-500/30 hover:text-sky-300 transition-all duration-300 cursor-default"
+            className="px-2.5 py-1 text-[10px] font-bold text-white/70 bg-white/5 rounded-full border border-white/10 hover:bg-teal-500/20 hover:border-teal-500/30 hover:text-teal-300 transition-all duration-300 cursor-default"
           >
             {tag}
           </span>
@@ -87,7 +88,7 @@ const ProjectCard = ({ project }) => (
             rel={project.links.demo ? "noopener noreferrer" : undefined}
             className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
               project.links.demo 
-                ? 'bg-[#0274A1] text-white hover:bg-sky-600 hover:shadow-[0_0_20px_rgba(2,116,161,0.4)]'
+                ? 'bg-[#087F8C] text-white hover:bg-teal-600 hover:shadow-[0_0_20px_rgba(8,127,140,0.4)]'
                 : 'bg-white/5 text-white/40 border border-white/10 cursor-not-allowed'
             }`}
           >
@@ -102,7 +103,7 @@ const ProjectCard = ({ project }) => (
             href={project.links.frontendDemo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0274A1] text-white text-sm font-semibold hover:bg-sky-600 hover:shadow-[0_0_20px_rgba(2,116,161,0.4)] transition-all duration-300"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#087F8C] text-white text-sm font-semibold hover:bg-teal-600 hover:shadow-[0_0_20px_rgba(8,127,140,0.4)] transition-all duration-300"
           >
             <ExternalLinkIcon />
             Frontend Demo
@@ -156,7 +157,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="bg-[#0a0a0a] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
+    <section id="projects" className="data-section bg-[#0a0a0a] pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
@@ -174,8 +175,9 @@ const Projects = () => {
 
         {/* Interactive 3D Project Carousel */}
         <div
-          data-aos="fade-up"
+          data-aos="zoom-in-up"
           data-aos-delay="150"
+          data-aos-duration="1100"
           className="relative"
           role="region"
           aria-roledescription="carousel"
@@ -262,7 +264,7 @@ const Projects = () => {
               <button
                 type="button"
                 onClick={() => rotate(-1)}
-                className="w-12 h-12 rounded-full bg-black border border-white/15 text-white hover:bg-[#0274A1] hover:border-sky-300 transition-all duration-300 flex items-center justify-center"
+                className="w-12 h-12 rounded-full bg-black border border-white/15 text-white hover:bg-[#087F8C] hover:border-teal-300 transition-all duration-300 flex items-center justify-center"
                 aria-label="Previous project"
               >
                 <span aria-hidden="true" className="text-2xl">←</span>
@@ -270,7 +272,7 @@ const Projects = () => {
               <button
                 type="button"
                 onClick={() => rotate(1)}
-                className="w-12 h-12 rounded-full bg-black border border-white/15 text-white hover:bg-[#0274A1] hover:border-sky-300 transition-all duration-300 flex items-center justify-center"
+                className="w-12 h-12 rounded-full bg-black border border-white/15 text-white hover:bg-[#087F8C] hover:border-teal-300 transition-all duration-300 flex items-center justify-center"
                 aria-label="Next project"
               >
                 <span aria-hidden="true" className="text-2xl">→</span>
@@ -278,7 +280,7 @@ const Projects = () => {
               <button
                 type="button"
                 onClick={() => setIsAutoPlaying((playing) => !playing)}
-                className="h-12 px-5 rounded-full bg-black border border-white/15 text-white text-xs font-black uppercase tracking-widest hover:border-sky-300 transition-all duration-300"
+                className="h-12 px-5 rounded-full bg-black border border-white/15 text-white text-xs font-black uppercase tracking-widest hover:border-teal-300 transition-all duration-300"
                 aria-pressed={isAutoPlaying}
               >
                 {isAutoPlaying ? 'Pause rotation' : 'Auto rotate'}
@@ -295,7 +297,7 @@ const Projects = () => {
                   aria-label={`Show project ${index + 1}: ${project.title}`}
                   onClick={() => rotateTo(index)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === activeIndex ? 'w-10 bg-[#0274A1]' : 'w-2.5 bg-white/25 hover:bg-white/60'
+                    index === activeIndex ? 'w-10 bg-[#087F8C]' : 'w-2.5 bg-white/25 hover:bg-white/60'
                   }`}
                 />
               ))}

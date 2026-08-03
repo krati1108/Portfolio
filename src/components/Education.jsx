@@ -1,7 +1,7 @@
 import { education } from '../data/portfolioData';
 
 const Education = () => (
-  <section id="education" className="bg-[#0a0a0a] py-24 px-6 md:px-12 w-full relative overflow-hidden">
+  <section id="education" className="data-section bg-[#0a0a0a] py-24 px-6 md:px-12 w-full relative overflow-hidden">
     <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]" />
     <div className="max-w-6xl mx-auto relative z-10">
       <div data-aos="fade-up" className="mb-12">
@@ -10,11 +10,11 @@ const Education = () => (
         </div>
         <h2 className="text-4xl md:text-5xl font-black text-white uppercase">Education</h2>
       </div>
-      <article data-aos="fade-up" data-aos-delay="150" className="rounded-3xl border border-white/10 bg-black/80 backdrop-blur-md p-8 md:p-12">
+      <article data-aos="zoom-in-up" data-aos-delay="150" data-aos-duration="1100" className="data-panel rounded-[2rem] border border-teal-300/15 bg-gradient-to-br from-[#0b2024] to-black/80 backdrop-blur-md p-8 md:p-12 shadow-[0_28px_80px_rgba(0,0,0,0.28)] hover:-translate-y-1 hover:border-teal-300/30 transition-all duration-500">
         <div className="flex flex-col md:flex-row md:justify-between gap-6 mb-8">
           <div>
             <h3 className="text-2xl md:text-3xl font-black text-white">{education.degree}</h3>
-            <p className="text-sky-400 font-bold mt-2">{education.institution} · {education.location}</p>
+            <p className="text-teal-400 font-bold mt-2">{education.institution} · {education.location}</p>
           </div>
           <div className="md:text-right">
             <p className="text-white/60 font-mono text-sm">{education.duration}</p>

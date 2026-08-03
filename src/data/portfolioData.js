@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Krati Jadaun",
   firstName: "Krati",
   brandName: "Krati Jadaun",
-  title: "Data Analyst & Business Systems Analyst",
+  title: "Business System Analyst II @ Real Cold",
   location: "Davenport, FL",
   phone: "(603) 438-6344",
   emails: {
@@ -20,7 +20,8 @@ export const socialLinks = {
 
 export const heroContent = {
   greeting: "Hi, I'm Krati",
-  titleHighlight: "Data Analyst & Business Systems Analyst",
+  titleHighlight: "Business System Analyst II @",
+  titleCompany: "Real Cold",
   subtitle:
     "I turn complex data into clear dashboards, reliable models, and decisions that move businesses forward.",
   ctaPrimary: { text: "View My Work", href: "#projects" },
@@ -168,7 +169,7 @@ export const experienceList = [
   {
     organization: "Grand Excelsior Hotels · Dubai, UAE",
     role: "Data Analyst",
-    duration: "Jun 2019 — Apr 2020",
+    duration: "Sep 2019 — Feb 2020",
     highlights: [
       "Built ETL reporting pipelines across 3 operational sources, integrating CRM, booking, and service log data while reducing reconciliation time by 30%.",
       "Analyzed 10K+ guest interactions through data cleaning, validation, and root cause analysis, improving the accuracy of operational reporting across 5+ properties.",
