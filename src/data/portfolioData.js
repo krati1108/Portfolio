@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Krati Jadaun",
   firstName: "Krati",
   brandName: "Krati Jadaun",
-  title: "Business System Analyst II @ Real Cold",
+  title: "Data Analyst / Business Analyst",
   location: "Davenport, FL",
   phone: "(603) 438-6344",
   emails: {
@@ -20,8 +20,7 @@ export const socialLinks = {
 
 export const heroContent = {
   greeting: "Hi, I'm Krati",
-  titleHighlight: "Business System Analyst II @",
-  titleCompany: "Real Cold",
+  titleHighlight: "Data Analyst / Business Analyst",
   subtitle:
     "I turn complex data into clear dashboards, reliable models, and decisions that move businesses forward.",
   ctaPrimary: { text: "View My Work", href: "#projects" },

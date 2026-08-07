@@ -143,12 +143,9 @@ const Hero = () => {
             className="text-white text-4xl md:text-6xl lg:text-7xl font-black mb-5 tracking-[-0.04em] leading-[0.98] drop-shadow-[0_4px_24px_rgba(0,0,0,0.35)]"
           >
             {heroContent.greeting}
-            <span className="mt-2 block text-3xl md:text-5xl lg:text-6xl">
+            <span className="mt-2 block whitespace-nowrap text-[clamp(1rem,4.2vw,3.25rem)]">
               <span className="text-white [-webkit-text-stroke:1.5px_#050505] [paint-order:stroke_fill] drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">
                 {heroContent.titleHighlight}
-              </span>{' '}
-              <span className="bg-gradient-to-r from-[#62B445] to-[#168FC7] bg-clip-text text-transparent [-webkit-text-stroke:1.5px_#050505] [paint-order:stroke_fill] drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]">
-                {heroContent.titleCompany}
               </span>
             </span>
           </h1>
